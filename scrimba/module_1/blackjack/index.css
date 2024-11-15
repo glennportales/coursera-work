@@ -1,0 +1,40 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: green;
+    box-shadow: black, inset,  0px, 0px, 10px, 10px;
+    text-align: center;
+    color:white;
+    font-weight: bold;
+
+}
+
+h1 {
+    color: goldenrod;
+}
+
+#message-el{
+    font-style:italic
+}
+
+#start-btn{
+    color: #016f32;
+    background-color: goldenrod;
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border:none;
+    border-radius: 2px;
+    font-weight: bold;
+    box-shadow: none;
+}
+#new-card-btn{
+    color: #016f32;
+    background-color: goldenrod;
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border:none;
+    border-radius: 2px;
+    font-weight: bold;
+    box-shadow: none;
+}

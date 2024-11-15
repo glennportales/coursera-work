@@ -1,0 +1,4 @@
+echo 'export PATH="/opt/homebrew/optpython/libexec/bin:$PATH"' >> ~/.zshrc
+echo 'export LDFLAGS="-L/opt/homebrew/opttcl-tk/lib"' >> ~/.zshrc
+echo 'export CPPFLAGS="-I/opt/homebrew/opttcl-tk/include"' >> ~/.zshrc
+echo 'export PKG_CONFIG_PATH="/opt/homebrew/opttcl-tk/lib/pkgconfig"' >> ~/.zshrc
