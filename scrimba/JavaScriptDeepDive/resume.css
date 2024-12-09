@@ -1,0 +1,276 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #ffffff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Section */
+#resume-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.name {
+    font-size: 2.5em;
+    color: #254aa5;
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.contact-info a {
+    color: #254aa5;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Section Headings */
+h2 {
+    font-size: 1.8em;
+    color: #254aa5;
+    border-bottom: 2px solid #254aa5;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+/* Summary Section */
+#summary {
+    margin-bottom: 30px;
+}
+
+.summary-text {
+    font-size: 1.1em;
+    color: #333;
+    text-align: justify;
+}
+
+/* Skills Section */
+#skills {
+    margin-bottom: 30px;
+}
+
+.skills-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    column-count: 2;
+}
+
+.skill-item {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Experience Section */
+#experience {
+    margin-bottom: 30px;
+}
+
+.job {
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: 1.3em;
+    color: #254aa5;
+    margin-bottom: 5px;
+}
+
+.company-name {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555;
+}
+
+.job-dates {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.job-responsibilities {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.job-responsibilities li {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Education Section */
+#education {
+    margin-bottom: 30px;
+}
+
+.degree {
+    font-size: 1.3em;
+    color: #254aa5;
+    margin-bottom: 5px;
+}
+
+.school-name {
+    font-size: 1.1em;
+    font-style: italic;
+    color: #555;
+}
+
+.education-dates {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Footer Section */
+#resume-footer {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* General Styles */
+section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+ul {
+    margin-bottom: 10px;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 600px) {
+    .skills-list {
+        column-count: 1;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    .name {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* Print Styles */
+@media print {
+    /* Reduce spacing to fit all content on one page */
+    html, body {
+        height: 100%; /* Ensure the page takes up the full height */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    body {
+        flex: 1;
+    }
+
+    #resume-header {
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        border-bottom-width: 1px;
+        margin-bottom: 10px;
+        padding-bottom: 2px;
+    }
+
+    .name {
+        font-size: 2em;
+    }
+
+    .contact-info {
+        font-size: 1em;
+    }
+
+    .summary-text {
+        font-size: 0.9em;
+    }
+
+    .skills-list {
+        column-count: 1;
+    }
+
+    .skill-item,
+    .job-responsibilities li,
+    .education-entry {
+        font-size: 0.9em;
+    }
+
+    #experience {
+        margin-bottom: 20px;
+    }
+
+    #education {
+        margin-bottom: 10px;
+    }
+
+  /* Footer always sticks to the bottom */
+  #resume-footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    font-size: 0.8em;
+    color: #777;
+    text-align: center;
+    padding: 10px 0;
+}
+
+    /* Remove margins around sections for better fit */
+    section {
+        margin: 0;
+    }
+}
+/* Print Styles */
+@media print {
+    /* Apply flexbox to make the footer stick to the bottom */
+    html, body {
+        height: 100%; /* Ensure the page takes up the full height */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Main content area */
+    body {
+        flex: 1;
+    }
+
+    section {
+        margin: 0;
+    }
+
+    /* Footer always sticks to the bottom */
+    #resume-footer {
+        margin-top: auto; /* Pushes the footer to the bottom */
+        font-size: 0.8em;
+        color: #777;
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
