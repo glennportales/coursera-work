@@ -1,0 +1,83 @@
+/* Styles for the Content Sidenav */
+#content-sidenav-container {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 1000;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  #content-sidenav-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #content-sidenav-container li {
+    margin-bottom: 10px;
+  }
+  
+  #content-sidenav-container a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  #content-sidenav-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .content-sidenav-header-item > a {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  #content-sidenav-container ul ul {
+    margin-left: 15px;
+  }
+  
+  #content-sidenav-container ul ul li {
+    margin-bottom: 5px;
+  }
+  
+  #content-sidenav-container ul ul a {
+    font-size: 14px;
+  }
+  
+  @media screen and (max-width: 1024px) {
+      #mobile-sidenav {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+  
+  #mobile-sidenav {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #mobile-sidenav:focus {
+    outline: none;
+    border-color: #999;
+  }
+  
+  
+  /* Highlighted Section */
+  @keyframes highlight-fade {
+    0% {
+      background-color: #fffbcc;
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+  
+  .highlighted {
+    animation: highlight-fade 2s forwards;
+  }
