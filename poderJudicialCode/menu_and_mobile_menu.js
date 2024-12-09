@@ -207,3 +207,83 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+
+  	//<---------------------THIS CODE IS FOR THE SEARCH----------------------------->  
+  
+  document.addEventListener("DOMContentLoaded", function() {
+
+    
+    
+  // Get the search input and blurbs
+  var searchInput = document.getElementById('region-search-bar');
+  var blurbs = document.querySelectorAll('.blurb-tab');
+
+  // Listen for input events on the search bar
+  searchInput.addEventListener('input', function() {
+    var filter = searchInput.value.toLowerCase();
+
+    blurbs.forEach(function(blurb) {
+      var textContent = '';
+
+      // Attempt to get the blurb title or description
+      var titleElement = blurb.querySelector('.et_pb_blurb_title');
+      var descriptionElement = blurb.querySelector('.et_pb_blurb_description');
+
+      if (titleElement) {
+        textContent += titleElement.textContent.toLowerCase() + ' ';
+      }
+
+      if (descriptionElement) {
+        textContent += descriptionElement.textContent.toLowerCase();
+      }
+
+      // Default to blurb's text content if no title or description is found
+      if (!textContent) {
+        textContent = blurb.textContent.toLowerCase();
+      }
+
+      // Check if the blurb matches the search query
+      if (textContent.includes(filter)) {
+        blurb.style.display = '';
+      } else {
+        blurb.style.display = 'none';
+      }
+    });
+  });
+});
+  
+ //<---------------------- THIS CODE IS TO EQUALIZE BLURB HEIGHTS --------------------------------> 
+document.addEventListener("DOMContentLoaded", function() {
+  function equalizeBlurbHeights() {
+    var blurbs = document.querySelectorAll('.blurb-tab');
+    var maxHeight = 0;
+
+    // Reset heights
+    blurbs.forEach(function(blurb) {
+      blurb.style.height = 'auto';
+    });
+
+    // Calculate the maximum height
+    blurbs.forEach(function(blurb) {
+      var blurbHeight = blurb.offsetHeight;
+      if (blurbHeight > maxHeight) {
+        maxHeight = blurbHeight;
+      }
+    });
+
+    // Set all blurbs to the maximum height
+    blurbs.forEach(function(blurb) {
+      blurb.style.height = maxHeight + 'px';
+    });
+  }
+
+  // Equalize heights on page load
+  equalizeBlurbHeights();
+
+  // Re-equalize heights on window resize
+  window.addEventListener('resize', function() {
+    equalizeBlurbHeights();
+  });
+});
+
