@@ -5,7 +5,12 @@ const restaurants = [
   { name: 'City Tavern', milesAway: 0.5 },
   { name: 'Shake Shack', milesAway: 5.3 }
 ]
-
-const result = restaurants.filter( restaurant => restaurants.name.startsWith('Z') );
+//filter returns an array with all elements that pass the test implemented by the provided function
+const result = restaurants.filter( restaurant => restaurants.name.startsWith('C') && restaurants.milesAway < 3 );
 
 console.log(results);
+
+//find returns the first element in the array that satisfies the provided testing function. It only provides 1 element.
+const found = restaurants.find( restaurant => restaurant.name.toLowerCase().includes('north') && restaurant.milesAway < 3);
+
+console.log(found);
