@@ -21,3 +21,5 @@ const meatloafIndex = finalMenuIdeas.findIndex(idea => idea === 'Meatloaf');
 const finalfinalMenu = [
     ...finalMenuIdeas.slie(0, meatloafIndex), ...finalMenuIdeas.slice(meatloafIndex + 1)
 ];
+
+console.log(finalfinalMenu);
