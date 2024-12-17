@@ -8,13 +8,11 @@ const fishDishes = ['Salmon Rillettes', 'Grilled Tuna Provencal', 'Fish and Chip
 const meatDishes = ['Lasagna', 'Spaghetti', 'Satay Chicken Skewers']
 
 // Modify these four variables first
-let chefsFishDishes = fishDishes[0];
-let regularFishDishes = fishDishes;
+let [chefsFishDishes, ...regularFishDishes] = fishDishes;
 
-let chefsMeatDishes = meatDishes[1,2];
-let regularMeatDishes = meatDishes;
+let [regularMeatDishes, ...chefsMeatDishes] = meatDishes;
 
 
 // Finally, use the spread operator to create these two arrays as well
-let chefsDishes = [...fishDishes[0], ...meatDishes[1,2]];
-let regularDishes = [...fishDishes, ...meatDishes];
+let chefsDishes = [...chefsFishDishes, ...chefsMeatDishes];
+let regularDishes = [...regularFishDishes, ...regularMeatDishes];
