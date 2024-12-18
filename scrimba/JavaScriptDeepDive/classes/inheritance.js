@@ -16,5 +16,4 @@ class Student{
 }
 
 const student1 = new Student(1, 'Reed');
-const student1 = new Student(1, 'Reed');
 console.log(student1.getStudentName());

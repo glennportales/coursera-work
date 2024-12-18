@@ -23,6 +23,3 @@ class Film {
 const favoriteFilm = new Film(1, 'Somos', 'Some Director', 2020);
 favoriteFilm.addGenre('Action');
 console.log(favoriteFilm.getFilmTitle()); // Output: Film Title: Somos
-
-
-// Rest of your code here. 
