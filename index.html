@@ -3,26 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Menu</title>
+    <title>Covey-Inspired Weekly Planner</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/planner.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Our Menu</h1>
-    </header>
-    <div class="container">
-        <section class="menu-item" id="chicken">
-            <div class="title">Chicken</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <main class="planner">
+        <header class="planner__header">
+            <h1>Weekly Planner</h1>
+            <p class="planner__subtitle">Organize your roles, goals, and priorities using Stephen Covey's Habit 3 framework.</p>
+            <div class="week-controls">
+                <label class="week-controls__label" for="week-start">Week of
+                    <input type="date" id="week-start" name="week-start">
+                </label>
+                <button type="button" id="reset-planner" class="button">Reset Planner</button>
+            </div>
+        </header>
+
+        <section class="planner__section" aria-labelledby="weekly-focus-title">
+            <h2 id="weekly-focus-title">Weekly Focus</h2>
+            <p class="section-intro"><span class="highlight">Clarify</span> your mission for the week to anchor the schedule around what matters most.</p>
+            <textarea id="weekly-focus" name="weekly-focus" rows="3" placeholder="Define your key outcomes and 'big rocks' for the week..."></textarea>
         </section>
-        <section class="menu-item" id="beef">
-            <div class="title">Beef</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <section class="planner__section" aria-labelledby="roles-goals-title">
+            <div class="section-heading">
+                <h2 id="roles-goals-title">Roles &amp; Weekly Goals</h2>
+                <button type="button" id="add-role" class="button button--outline">Add Role</button>
+            </div>
+            <p class="section-intro">List the roles you serve and the single most important outcome you will deliver for each. Keep goals specific and aligned with your <span class="highlight">priorities</span>.</p>
+            <div class="table-wrapper">
+                <table class="roles-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Role</th>
+                            <th scope="col">Weekly Goal</th>
+                            <th scope="col" class="visually-hidden">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roles-body">
+                        <!-- Rows rendered dynamically -->
+                    </tbody>
+                </table>
+            </div>
         </section>
-        <section class="menu-item" id="sushi">
-            <div class="title">Sushi</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <section class="planner__section" aria-labelledby="priority-matrix-title">
+            <h2 id="priority-matrix-title">Priority Matrix</h2>
+            <p class="section-intro">Capture tasks inside Covey's quadrants to protect important work and limit distractions.</p>
+            <div class="matrix" role="group" aria-labelledby="priority-matrix-title">
+                <div class="matrix__cell" data-quadrant="q1">
+                    <h3>Q1: Urgent &amp; Important</h3>
+                    <textarea id="quadrant-q1" rows="5" placeholder="Deadlines, crises, and commitments that must happen this week."></textarea>
+                </div>
+                <div class="matrix__cell" data-quadrant="q2">
+                    <h3>Q2: Not Urgent &amp; Important</h3>
+                    <textarea id="quadrant-q2" rows="5" placeholder="Strategic work, planning, relationships, and personal growth."></textarea>
+                </div>
+                <div class="matrix__cell" data-quadrant="q3">
+                    <h3>Q3: Urgent &amp; Not Important</h3>
+                    <textarea id="quadrant-q3" rows="5" placeholder="Interruptions and tasks to delegate or minimize."></textarea>
+                </div>
+                <div class="matrix__cell" data-quadrant="q4">
+                    <h3>Q4: Not Urgent &amp; Not Important</h3>
+                    <textarea id="quadrant-q4" rows="5" placeholder="Activities to reduce so you can focus on what matters."></textarea>
+                </div>
+            </div>
         </section>
-    </div>
+
+        <section class="planner__section" aria-labelledby="weekly-schedule-title">
+            <h2 id="weekly-schedule-title">Weekly Schedule</h2>
+            <p class="section-intro">Block time for your big rocks first, then arrange supporting tasks around them.</p>
+            <div class="table-wrapper table-wrapper--scroll">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time Block</th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                            <th scope="col">Saturday</th>
+                            <th scope="col">Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Morning</th>
+                            <td><textarea data-day="monday" data-block="morning" rows="4" placeholder="Focus work, key meetings, reflection..."></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="morning" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Midday</th>
+                            <td><textarea data-day="monday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="midday" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Afternoon</th>
+                            <td><textarea data-day="monday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="afternoon" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Evening</th>
+                            <td><textarea data-day="monday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="evening" rows="4"></textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="planner__section" aria-labelledby="weekly-review-title">
+            <h2 id="weekly-review-title">Weekly Review</h2>
+            <p class="section-intro">Note key learnings, victories, and adjustments for the coming week.</p>
+            <textarea id="weekly-review" name="weekly-review" rows="4" placeholder="Reflect on progress, energy, and relationships..."></textarea>
+        </section>
+    </main>
 </body>
 </html>
