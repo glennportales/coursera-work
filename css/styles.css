@@ -3,7 +3,6 @@
     --text: #000000;
     --accent: #c1121f;
     --border: #000000;
-    --muted: #f7f7f7;
 }
 
 * {
@@ -237,6 +236,30 @@ select:focus {
 }
 
 .goal-list {
+}
+
+.planner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+}
+
+.planner__header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+}
+
+.planner__header h1 {
+    font-size: 2rem;
+    margin: 0 0 8px;
+}
+
+.planner__subtitle {
+    margin: 0 0 16px;
+}
+
+.week-controls {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -433,6 +456,76 @@ select:focus {
 .matrix__list.is-hovered {
     outline: 2px dashed var(--accent);
     outline-offset: 2px;
+    gap: 12px;
+    align-items: center;
+}
+
+.week-controls__label {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.week-controls input[type="date"] {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.button {
+    background-color: var(--background);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--accent);
+    color: var(--background);
+    outline: none;
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.button--outline {
+    border-style: dashed;
+}
+
+.planner__section {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-heading h2 {
+    margin: 0;
+}
+
+.section-intro {
+    margin: 12px 0 16px;
+    max-width: 72ch;
+}
+
+.highlight {
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .table-wrapper {
@@ -447,12 +540,21 @@ select:focus {
     padding: 12px 0;
 }
 
+
 .schedule-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 640px;
 }
 
+.roles-table,
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.roles-table th,
+.roles-table td,
 .schedule-table th,
 .schedule-table td {
     border: 1px solid var(--border);
@@ -501,12 +603,107 @@ select:focus {
 
     .role-card__actions {
         grid-column: 1 / -1;
-    }
+.roles-table th,
+.schedule-table th {
+    text-align: left;
+    font-weight: 700;
+}
+
+.roles-table td:last-child {
+    width: 80px;
+    text-align: center;
+}
+
+.roles-table input[type="text"],
+textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    color: var(--text);
+    padding: 6px;
+    font-size: 0.95rem;
+    resize: vertical;
+    min-height: 40px;
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: var(--text);
+    opacity: 0.6;
+}
+
+textarea:focus,
+input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.matrix__cell {
+    border: 1px solid var(--border);
+    padding: 12px;
+}
+
+.matrix__cell h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    color: var(--accent);
+}
+
+.remove-role {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.remove-role:hover,
+.remove-role:focus {
+    text-decoration: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 @media (max-width: 720px) {
     .planner {
         padding: 20px 16px 40px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .week-controls {
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+
+@media (max-width: 720px) {
+    .planner {
+        padding: 20px 16px 40px;
+
+    .roles-table td:last-child {
+        width: auto;
+
     }
 
     .section-heading {

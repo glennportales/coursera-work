@@ -13,6 +13,7 @@
             <h1>Weekly Planner</h1>
             <p class="planner__subtitle">Organize your roles, goals, and priorities using Stephen Covey's Habit 3 framework.</p>
             <div class="week-controls">
+
                 <div class="week-controls__group">
                     <label class="week-controls__label" for="week-start">Week of</label>
                     <input type="date" id="week-start" name="week-start">
@@ -34,6 +35,11 @@
                     <label for="week-selector">Backlog</label>
                     <select id="week-selector" name="week-selector"></select>
                 </div>
+
+                <label class="week-controls__label" for="week-start">Week of
+                    <input type="date" id="week-start" name="week-start">
+                </label>
+
                 <button type="button" id="reset-planner" class="button">Reset Planner</button>
             </div>
         </header>
@@ -54,6 +60,25 @@
             </div>
             <p class="section-intro">List the roles you serve and capture the goals, urgency, and importance that will direct your <span class="highlight">priority</span> for the week.</p>
             <div id="roles-list" class="roles-list" aria-live="polite"></div>
+
+                <button type="button" id="add-role" class="button button--outline">Add Role</button>
+            </div>
+            <p class="section-intro">List the roles you serve and the single most important outcome you will deliver for each. Keep goals specific and aligned with your <span class="highlight">priorities</span>.</p>
+            <div class="table-wrapper">
+                <table class="roles-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Role</th>
+                            <th scope="col">Weekly Goal</th>
+                            <th scope="col" class="visually-hidden">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roles-body">
+                        <!-- Rows rendered dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
         </section>
 
         <section class="planner__section" aria-labelledby="priority-matrix-title">
@@ -87,6 +112,24 @@
                         <button type="button" class="matrix-add" data-add-quadrant="q4">Add Task</button>
                     </div>
                     <ul class="matrix__list" data-quadrant="q4" aria-label="Not Urgent and Not Important"></ul>
+            <p class="section-intro">Capture tasks inside Covey's quadrants to protect important work and limit distractions.</p>
+            <div class="matrix" role="group" aria-labelledby="priority-matrix-title">
+                <div class="matrix__cell" data-quadrant="q1">
+                    <h3>Q1: Urgent &amp; Important</h3>
+                    <textarea id="quadrant-q1" rows="5" placeholder="Deadlines, crises, and commitments that must happen this week."></textarea>
+                </div>
+                <div class="matrix__cell" data-quadrant="q2">
+                    <h3>Q2: Not Urgent &amp; Important</h3>
+                    <textarea id="quadrant-q2" rows="5" placeholder="Strategic work, planning, relationships, and personal growth."></textarea>
+                </div>
+                <div class="matrix__cell" data-quadrant="q3">
+                    <h3>Q3: Urgent &amp; Not Important</h3>
+                    <textarea id="quadrant-q3" rows="5" placeholder="Interruptions and tasks to delegate or minimize."></textarea>
+                </div>
+                <div class="matrix__cell" data-quadrant="q4">
+                    <h3>Q4: Not Urgent &amp; Not Important</h3>
+                    <textarea id="quadrant-q4" rows="5" placeholder="Activities to reduce so you can focus on what matters."></textarea>
+
                 </div>
             </div>
         </section>
@@ -100,6 +143,63 @@
                         <tr id="schedule-header-row"></tr>
                     </thead>
                     <tbody id="schedule-body"></tbody>
+            <p class="section-intro">Block time for your big rocks first, then arrange supporting tasks around them.</p>
+            <div class="table-wrapper table-wrapper--scroll">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time Block</th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                            <th scope="col">Saturday</th>
+                            <th scope="col">Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Morning</th>
+                            <td><textarea data-day="monday" data-block="morning" rows="4" placeholder="Focus work, key meetings, reflection..."></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="morning" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="morning" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Midday</th>
+                            <td><textarea data-day="monday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="midday" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="midday" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Afternoon</th>
+                            <td><textarea data-day="monday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="afternoon" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="afternoon" rows="4"></textarea></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Evening</th>
+                            <td><textarea data-day="monday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="tuesday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="wednesday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="thursday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="friday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="saturday" data-block="evening" rows="4"></textarea></td>
+                            <td><textarea data-day="sunday" data-block="evening" rows="4"></textarea></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </section>
