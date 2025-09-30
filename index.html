@@ -13,33 +13,9 @@
             <h1>Weekly Planner</h1>
             <p class="planner__subtitle">Organize your roles, goals, and priorities using Stephen Covey's Habit 3 framework.</p>
             <div class="week-controls">
-
-                <div class="week-controls__group">
-                    <label class="week-controls__label" for="week-start">Week of</label>
-                    <input type="date" id="week-start" name="week-start">
-                    <span id="week-range" class="week-controls__range" aria-live="polite"></span>
-                </div>
-                <div class="week-controls__group">
-                    <label for="week-start-day">Week starts on</label>
-                    <select id="week-start-day" name="week-start-day">
-                        <option value="sunday">Sunday</option>
-                        <option value="monday">Monday</option>
-                        <option value="tuesday">Tuesday</option>
-                        <option value="wednesday">Wednesday</option>
-                        <option value="thursday">Thursday</option>
-                        <option value="friday">Friday</option>
-                        <option value="saturday">Saturday</option>
-                    </select>
-                </div>
-                <div class="week-controls__group">
-                    <label for="week-selector">Backlog</label>
-                    <select id="week-selector" name="week-selector"></select>
-                </div>
-
                 <label class="week-controls__label" for="week-start">Week of
                     <input type="date" id="week-start" name="week-start">
                 </label>
-
                 <button type="button" id="reset-planner" class="button">Reset Planner</button>
             </div>
         </header>
@@ -53,14 +29,6 @@
         <section class="planner__section" aria-labelledby="roles-goals-title">
             <div class="section-heading">
                 <h2 id="roles-goals-title">Roles &amp; Weekly Goals</h2>
-                <div class="role-actions">
-                    <button type="button" id="suggest-role" class="button button--ghost">Suggest Role</button>
-                    <button type="button" id="add-role" class="button button--outline">Add Role</button>
-                </div>
-            </div>
-            <p class="section-intro">List the roles you serve and capture the goals, urgency, and importance that will direct your <span class="highlight">priority</span> for the week.</p>
-            <div id="roles-list" class="roles-list" aria-live="polite"></div>
-
                 <button type="button" id="add-role" class="button button--outline">Add Role</button>
             </div>
             <p class="section-intro">List the roles you serve and the single most important outcome you will deliver for each. Keep goals specific and aligned with your <span class="highlight">priorities</span>.</p>
@@ -78,40 +46,10 @@
                     </tbody>
                 </table>
             </div>
-
         </section>
 
         <section class="planner__section" aria-labelledby="priority-matrix-title">
             <h2 id="priority-matrix-title">Priority Matrix</h2>
-            <p class="section-intro">Every goal and task becomes a draggable card placed in the correct quadrant. Reorder to express <span class="highlight">priority</span> and drop cards into your schedule.</p>
-            <div class="matrix" role="group" aria-labelledby="priority-matrix-title">
-                <div class="matrix__cell" data-quadrant="q1">
-                    <div class="matrix__cell-header">
-                        <h3>Q1: Urgent &amp; Important</h3>
-                        <button type="button" class="matrix-add" data-add-quadrant="q1">Add Task</button>
-                    </div>
-                    <ul class="matrix__list" data-quadrant="q1" aria-label="Urgent and Important"></ul>
-                </div>
-                <div class="matrix__cell" data-quadrant="q2">
-                    <div class="matrix__cell-header">
-                        <h3>Q2: Not Urgent &amp; Important</h3>
-                        <button type="button" class="matrix-add" data-add-quadrant="q2">Add Task</button>
-                    </div>
-                    <ul class="matrix__list" data-quadrant="q2" aria-label="Not Urgent and Important"></ul>
-                </div>
-                <div class="matrix__cell" data-quadrant="q3">
-                    <div class="matrix__cell-header">
-                        <h3>Q3: Urgent &amp; Not Important</h3>
-                        <button type="button" class="matrix-add" data-add-quadrant="q3">Add Task</button>
-                    </div>
-                    <ul class="matrix__list" data-quadrant="q3" aria-label="Urgent and Not Important"></ul>
-                </div>
-                <div class="matrix__cell" data-quadrant="q4">
-                    <div class="matrix__cell-header">
-                        <h3>Q4: Not Urgent &amp; Not Important</h3>
-                        <button type="button" class="matrix-add" data-add-quadrant="q4">Add Task</button>
-                    </div>
-                    <ul class="matrix__list" data-quadrant="q4" aria-label="Not Urgent and Not Important"></ul>
             <p class="section-intro">Capture tasks inside Covey's quadrants to protect important work and limit distractions.</p>
             <div class="matrix" role="group" aria-labelledby="priority-matrix-title">
                 <div class="matrix__cell" data-quadrant="q1">
@@ -129,20 +67,12 @@
                 <div class="matrix__cell" data-quadrant="q4">
                     <h3>Q4: Not Urgent &amp; Not Important</h3>
                     <textarea id="quadrant-q4" rows="5" placeholder="Activities to reduce so you can focus on what matters."></textarea>
-
                 </div>
             </div>
         </section>
 
         <section class="planner__section" aria-labelledby="weekly-schedule-title">
             <h2 id="weekly-schedule-title">Weekly Schedule</h2>
-            <p class="section-intro">Block time for your big rocks first, then arrange supporting tasks around them. Drag cards into your chosen blocks.</p>
-            <div class="table-wrapper table-wrapper--scroll">
-                <table class="schedule-table" id="schedule-table">
-                    <thead>
-                        <tr id="schedule-header-row"></tr>
-                    </thead>
-                    <tbody id="schedule-body"></tbody>
             <p class="section-intro">Block time for your big rocks first, then arrange supporting tasks around them.</p>
             <div class="table-wrapper table-wrapper--scroll">
                 <table class="schedule-table">
